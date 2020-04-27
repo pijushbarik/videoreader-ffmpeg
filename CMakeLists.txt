@@ -8,6 +8,7 @@ add_executable(main main.cpp)
 
 find_library(avformat avformat)
 find_library(avcodec avcodec)
+find_library(avdevice avdevice)
 find_library(avutil avutil)
 find_library(swscale swscale)
 
@@ -19,6 +20,7 @@ target_link_libraries(
     videoreader
     ${avformat}
     ${avcodec}
+    ${avdevice}
     ${avutil}
     ${swscale}
     ${opencv_core}

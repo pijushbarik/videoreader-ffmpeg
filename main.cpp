@@ -1,7 +1,6 @@
 #include <iostream>
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
-
 #include "reader/videoreader.hpp"
 
 int main(int argc, char **argv) {
@@ -14,6 +13,9 @@ int main(int argc, char **argv) {
     }
 
     std::string input(argv[1]);
+
+    avdevice_register_all();
+
     VideoReader reader(input);
     
     if(!reader.isOpened()) {
@@ -31,7 +33,12 @@ int main(int argc, char **argv) {
     while(true) {
         if(!reader.read(mat)) break;
         cv::imshow("Output", mat);
-        if(cv::waitKey(10) > 0) break;
+
+        mat.release();
+
+        if(cv::waitKey(10) > 0)
+            break;
+
         std::cout << ++framecount << "\r" << std::flush;
     }
 
