@@ -133,6 +133,7 @@ VideoReader::VideoReader(string input) {
 
 int VideoReader::read(cv::Mat &mat) {
     int ret;
+
     do {
         if(!endOfStream) {
             // read packet from input

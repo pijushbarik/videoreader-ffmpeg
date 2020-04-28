@@ -22,6 +22,7 @@ extern "C" {
     #include <libavutil/pixdesc.h>
     #include <libavutil/imgutils.h>
     #include <libswscale/swscale.h>
+    #include <libavdevice/avdevice.h>
 }
 
 // OpenCV headers
